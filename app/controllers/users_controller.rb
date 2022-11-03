@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  skip_before_action :authorized, only: %i[new create]
-  
+  skip_before_action :authorized
+
   def new
     @user = User.new
   end
@@ -20,14 +20,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  def login
-    @user = User.find_by_email(params[:email])
-    if @user.password == params[:password]
-      give_token
-    else
-      redirect_to home_url
-    end
-  end
+
 
   private
 
