@@ -2,5 +2,11 @@
 <p>Find me in app/views/sessions/welcome.html.erb</p> %>
 
 <h1>Welcome</h1>
-<%= button_to "Login", '/login', method: :get%>
-<%= button_to "Sign Up", '/users/new', method: :get%>
+<% if logged_in? %>
+    <h1>You are Logged In, <%= current_user.first_name %></h1>
+    <% else %>
+    <div>
+    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Sign Up", '/users/new', method: :get%>
+</div>
+<%end%>
