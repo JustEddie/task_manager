@@ -6,7 +6,6 @@ Rails.application.routes.draw do
   get 'logout', to: 'sessions#destroy'
   delete 'logout',  to: 'sessions#destroy'
 
-
   # get 'categories/index'
   # get 'categories/new'
   # get 'categories/create'

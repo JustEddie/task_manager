@@ -17,7 +17,7 @@
 	    <nav class="navbar">
 	      <div class="container">
 	        <div class="navbar-brand">
-	          <%= link_to 'My Everyday Task Manger', root_path, class: "navbar-item" %>
+	          <h1><%= link_to 'My Everyday Task Manger', root_path, class: "navbar-item" %></h1>
 	          <span class="navbar-burger burger" data-target="navbarMenuHeroA">
 	            <span></span>
 	            <span></span>
@@ -26,8 +26,16 @@
 	        </div>
 	        <div id="navbarMenuHeroA" class="navbar-menu">
 	          <div class="navbar-end">
-
-	            <%= link_to "Create New Post", root_path, class:"navbar-item" %>
+              <% if logged_in? %>
+               <h1>You are logged in as: <%= current_user.first_name %></h1>
+               <div></div>
+               <%= button_to "Log Out",'/sessions/destroy', method: :delete, class:"navbar-item button is-danger" %>
+              <% else %>
+                <div class="buttons">
+                  <%= button_to "Log In!", login_path, class:"navbar-item button is-success" %>
+                  <%= button_to "Sign Up!",'/users/new', method: :get, class:"navbar-item button is-link" %>
+                </div>
+              <%end %>
 	          </div>
 	        </div>
 	      </div>
