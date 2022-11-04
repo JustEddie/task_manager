@@ -1,12 +1,12 @@
 <%# <h1>Sessions#welcome</h1>
 <p>Find me in app/views/sessions/welcome.html.erb</p> %>
 
-<h1>Welcome</h1>
+<h1>Welcome!</h1>
 <% if logged_in? %>
-    <h1>You are Logged In, <%= current_user.first_name %></h1>
+    <h1>You are logged in, <%= current_user.first_name %></h1>
     <% else %>
     <div>
-    <%= button_to "Login", '/login', method: :get%>
+    <%= button_to "Log In", '/login', method: :get%>
     <%= button_to "Sign Up", '/users/new', method: :get%>
 </div>
 <%end%>
