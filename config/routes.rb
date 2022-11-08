@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  get 'tasks/new'
+  get 'tasks/create'
+  get 'tasks/update'
+  get 'tasks/destroy'
+  get 'tasks/show'
+  get 'tasks/index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'

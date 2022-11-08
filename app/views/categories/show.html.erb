@@ -1,2 +1,5 @@
-<h1><%= @category.name %></h1>
-
+<h1 class="title"><%= @category.name %></h1>
+<div>
+    <p><%= @category.description %></p>
+    <h3><%= button_to "delete" , @category, method: :delete %></h3>
+</div>

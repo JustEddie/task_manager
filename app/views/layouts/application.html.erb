@@ -28,7 +28,9 @@
 	          <div class="navbar-end">
               <% if logged_in? %>
                <h1>You are logged in as: <%= current_user.first_name %></h1>
-               <div></div>
+               <div>
+			   	<%= button_to "Categories", categories_path, method: :get, class:"navbar-item button is-link" %>
+			   </div>
                <%= button_to "Log Out",'/sessions/destroy', method: :delete, class:"navbar-item button is-danger" %>
               <% else %>
                 <div class="buttons">
