@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
-  get 'tasks/new'
-  get 'tasks/create'
-  get 'tasks/update'
-  get 'tasks/destroy'
-  get 'tasks/show'
-  get 'tasks/index'
+  # get 'tasks/new'
+  post 'create_task', to: 'tasks#create'
+  # get 'tasks/update'
+  # get 'tasks/destroy'
+  # get 'tasks/show'
+  # get 'tasks/index'
   get 'login', to: 'sessions#new'
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
@@ -14,13 +14,20 @@ Rails.application.routes.draw do
 
   # get 'categories/index'
   # get 'categories/new'
-  # get 'categories/create'
+  # post 'categories/create'
   # get 'categories/show'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users
-  resources :categories
+  resources :categories do
+    resources :tasks do
+      member do
+        patch :complete
+      end
+    end
+  end
   resources :sessions
+  # resources :tasks
   # root "users#login"
   root "sessions#welcome"
 end

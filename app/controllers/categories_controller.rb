@@ -35,6 +35,6 @@ class CategoriesController < ApplicationController
   private
 
   def category_params
-    params.require(:category).permit(:name, :description)
+    params.require(:category).permit(:name, :description, tasks_attributes:[:name])
   end
 end

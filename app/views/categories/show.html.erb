@@ -1,5 +1,11 @@
 <h1 class="title"><%= @category.name %></h1>
 <div>
     <p><%= @category.description %></p>
+        <% if @category.tasks.try(:any?) %>
+            <%= render @category.tasks %>
+        <% end %>
+        <div id="form">
+            <%= render "tasks/form" %>
+        </div>  
     <h3><%= button_to "delete" , @category, method: :delete %></h3>
 </div>

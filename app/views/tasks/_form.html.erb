@@ -1,0 +1,4 @@
+<%= form_for([@category, @category.tasks.build]) do |f| %>
+ <%= f.text_field :name, placeholder: "New Task" %>
+ <%= f.submit %>
+<% end %>
