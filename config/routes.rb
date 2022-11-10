@@ -20,11 +20,7 @@ Rails.application.routes.draw do
 
   resources :users
   resources :categories do
-    resources :tasks do
-      member do
-        patch :complete
-      end
-    end
+    resources :tasks
   end
   resources :sessions
   # resources :tasks

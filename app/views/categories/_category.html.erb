@@ -1,0 +1,25 @@
+<h1 class="title"><%= link_to category.name, category %></h1>
+<div>
+    <h3><%= button_to "delete" , category, method: :delete %></h3>
+    <p><%= category.description %></p>
+        <div id="tasks_wrapper" >
+            <div class="media">
+                <div id="form">
+                    
+                </div>
+                <% if category.tasks.try(:any?) %>
+                    <%= form_for([category, category.tasks.build]) do |f| %>
+ <%= f.text_field :name, placeholder: "New Task" %>
+ <%= f.submit %>
+<% end %>
+                    <ul>
+                        <%= category.tasks.each do |task| %>
+                            <div class="media-content">
+                            <li><%= task.name %><li>
+                            </div>
+                        <% end %>
+                    </ul>
+                <% end %>
+            </div>  
+        </div>
+</div>

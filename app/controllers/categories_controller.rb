@@ -18,23 +18,25 @@ class CategoriesController < ApplicationController
     @category = @user.categories.build(category_params)
 
     if @category.save
-      redirect_to @category
+      redirect_to categories_path
     else
       render 'new'
     end
   end
 
-
-
   def destroy
     @category = Category.find(params[:id])
+    @category.tasks.each do |task|
+      task.destroy
+    end
     @category.destroy
-    flash[:notice] = "Category has been deleted"
+    flash[:notice] = 'Category has been deleted'
     redirect_to categories_path
   end
+
   private
 
   def category_params
-    params.require(:category).permit(:name, :description, tasks_attributes:[:name])
+    params.require(:category).permit(:name, :description)
   end
 end

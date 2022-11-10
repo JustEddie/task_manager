@@ -3,24 +3,21 @@
 
 <div class="section">
     <div class="container">
+    <%= button_to "Add new category", '/categories/new', method: :get, class:"button" %>
             <%= @categories.each do |category| %>
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
-                                <h3><%= link_to category.name, category %></h3>
-                                <div class = "media">
-                                    <h5>
-                                        
-                                    </h5>
-                                </div>
-                                <h3><%= button_to "delete" , category, method: :delete %></h3>
+                                <%= render category %>
+                                <%# <%= render "tasks/form" %> %>
+                                <%# <h3><%= button_to "delete" , category, method: :delete %></h3> %>
                             </div>
                         </div>
                     </div>
                 </div>
             <% end %>
-            <%= button_to "Add new category", '/categories/new', method: :get, class:"button" %>
+            
 
     </div>
 </div>
