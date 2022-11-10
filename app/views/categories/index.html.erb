@@ -1,6 +1,4 @@
 
-<h1 class="title">Categories</h1>
-
 <div class="section">
     <div class="container">
     <%= button_to "Add new category", '/categories/new', method: :get, class:"button" %>
@@ -10,8 +8,6 @@
                         <div class="media">
                             <div class="media-content">
                                 <%= render category %>
-                                <%# <%= render "tasks/form" %> %>
-                                <%# <h3><%= button_to "delete" , category, method: :delete %></h3> %>
                             </div>
                         </div>
                     </div>

@@ -1,25 +1,28 @@
-<h1 class="title"><%= link_to category.name, category %></h1>
+<h1 class="title"><%= category.name %></h1>
+    <div class="buttons">
+	    <%= button_to 'Edit', edit_category_path(category), class:"button is-link" %>
+        <%= button_to 'Delete', category, method: :delete, data: { confirm: "Are you sure?" }, class:"button is-danger" %>
+    </div>
 <div>
-    <h3><%= button_to "delete" , category, method: :delete %></h3>
     <p><%= category.description %></p>
-        <div id="tasks_wrapper" >
-            <div class="media">
-                <div id="form">
-                    
-                </div>
-                <% if category.tasks.try(:any?) %>
-                    <%= form_for([category, category.tasks.build]) do |f| %>
- <%= f.text_field :name, placeholder: "New Task" %>
- <%= f.submit %>
-<% end %>
-                    <ul>
-                        <%= category.tasks.each do |task| %>
-                            <div class="media-content">
-                            <li><%= task.name %><li>
-                            </div>
-                        <% end %>
-                    </ul>
+    <div id="tasks_wrapper" >
+        <div class="media">
+            <div id="form">
+                <%= form_for([category, category.tasks.build]) do |f| %>
+                    <%= f.text_field :name, placeholder: "New Task", class:"input"%>
+                    <%= f.submit class:"button" %> 
                 <% end %>
-            </div>  
+            </div>
+            <div class="media">
+            <ul>
+                <%= category.tasks.each do |task| %>
+                    <div class="media-name">
+                       <li><%= task.name %><li>
+                    </div>
+                <% end %>
+            </ul> 
+            </div>
         </div>
+
+    </div>
 </div>

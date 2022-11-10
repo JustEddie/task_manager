@@ -19,11 +19,16 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users
+
   resources :categories do
-    resources :tasks
+    resources :tasks do
+      member do
+        patch :complete
+      end
+    end
   end
   resources :sessions
   # resources :tasks
   # root "users#login"
-  root "sessions#welcome"
+  root 'sessions#welcome'
 end

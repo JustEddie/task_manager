@@ -1,4 +1,5 @@
 class CategoriesController < ApplicationController
+  before_action :set_category, only: [:edit, :update, :destroy]
   def index
     @user = User.find_by(id: session[:user_id])
     @categories = @user.categories.all
@@ -24,8 +25,21 @@ class CategoriesController < ApplicationController
     end
   end
 
+  def edit
+    # @category = Category.find(params[:id])
+  end
+
+  def update
+    # @category = Category.find(params[:id])
+      if @category.update(category_params)
+        redirect_to categories_path
+      else
+        render 'edit'
+      end
+  end
+
   def destroy
-    @category = Category.find(params[:id])
+    # @category = Category.find(params[:id])
     @category.tasks.each do |task|
       task.destroy
     end
@@ -36,6 +50,9 @@ class CategoriesController < ApplicationController
 
   private
 
+  def set_category
+    @category = Category.find(params[:id])
+  end
   def category_params
     params.require(:category).permit(:name, :description)
   end

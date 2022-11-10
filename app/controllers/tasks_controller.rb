@@ -1,5 +1,6 @@
 class TasksController < ApplicationController
   before_action :set_category
+  before_action :set_task, except: [:create]
   def index
     # @category = Category.find_by(id: category_id)
     @tasks = @category.tasks.all
@@ -25,12 +26,20 @@ class TasksController < ApplicationController
     end
   end
 
+  def complete
+		@task.update_attribute(:completed_at, Time.now)
+		redirect_to categories_path, notice: "Todo item completed"
+	end
+
 
   def destroy
-    @task = Task.find(params[:id])
-    @task.destroy
-    flash[:notice] = "Task has been deleted"
+    if @task.destroy
+      flash[:notice] = "Task has been deleted"
     redirect_to categories_path
+    else
+      flash[:error] = "Task failed to be deleted"
+    redirect_to categories_path
+    end
   end
 
   private
@@ -38,6 +47,10 @@ class TasksController < ApplicationController
   def set_category
     @category = Category.find(params[:category_id])
     # @category = Category.find_by(params[:category])
+  end
+
+  def set_task
+    @task = @category.tasks.find(params[:id])
   end
 
   def task_params
