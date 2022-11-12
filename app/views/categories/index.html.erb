@@ -2,7 +2,7 @@
 <div class="section">
     <div class="container">
     <%= button_to "Add new category", '/categories/new', method: :get, class:"button" %>
-            <%= @categories.each do |category| %>
+            <% @categories.each do |category| %>
                 <div class="card">
                     <div class="card-content">
                         <div class="media">

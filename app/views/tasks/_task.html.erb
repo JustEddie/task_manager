@@ -2,29 +2,29 @@
 <div class="row clearfix">
 	<% if task.completed? %>
 		<div class="complete">
-			<%= link_to complete_category_task_path(@category, task.id), method: :patch do %>
+			<%= link_to complete_category_task_path(category, task.id), method: :patch do %>
 				<i style="opacity: 0.4;" class="fa fa-check"></i>
 			<% end %>
 		</div>
 		<div class="task">
-			<p style="opacity: 0.4;"><strike><%= task.content %></strike></p>
+			<p style="opacity: 0.4;"><strike><%= task.name %></strike></p>
 		</div>
 		<div class="trash">
-			<%= link_to category_task_path(@category, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+			<%= link_to category_task_path(category, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
 				<i class="fa fa-trash"></i>
 			<% end %>
 		</div>
 	<% else %>
 		<div class="complete">
-			<%= link_to complete_category_task_path(@category, task.id), method: :patch do %>
+			<%= link_to complete_category_task_path(category, task.id), method: :patch do %>
 				<i class="fa fa-check"></i>
 			<% end %>
 		</div>
 		<div class="task">
-			<p><%= task.content %></p>
+			<p><%= task.name %></p>
 		</div>
 		<div class="trash">
-			<%= link_to category_task_path(@category, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
+			<%= link_to category_task_path(category, task.id), method: :delete, data: { confirm: "Are you sure?" } do %>
 				<i class="fa fa-trash"></i>
 			<% end %>
 		</div>

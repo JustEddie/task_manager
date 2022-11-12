@@ -1,10 +1,10 @@
 <h1 class="title"><%= category.name %></h1>
-    <div class="buttons">
-	    <%= button_to 'Edit', edit_category_path(category), class:"button is-link" %>
+<p><%= category.description %></p>
+    <div class="buttons is-right">
+	    <%= button_to 'Edit', edit_category_path(category), method: :get, class:"button is-link" %>
         <%= button_to 'Delete', category, method: :delete, data: { confirm: "Are you sure?" }, class:"button is-danger" %>
     </div>
 <div>
-    <p><%= category.description %></p>
     <div id="tasks_wrapper" >
         <div class="media">
             <div id="form">
@@ -13,15 +13,15 @@
                     <%= f.submit class:"button" %> 
                 <% end %>
             </div>
-            <div class="media">
+        </div>
+        <div class="media">
             <ul>
-                <%= category.tasks.each do |task| %>
+                <% category.tasks.each do |task| %>
                     <div class="media-name">
                        <li><%= task.name %><li>
                     </div>
                 <% end %>
             </ul> 
-            </div>
         </div>
 
     </div>

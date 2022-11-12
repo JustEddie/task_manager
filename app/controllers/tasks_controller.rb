@@ -28,7 +28,7 @@ class TasksController < ApplicationController
 
   def complete
 		@task.update_attribute(:completed_at, Time.now)
-		redirect_to categories_path, notice: "Todo item completed"
+		redirect_to categories_path, notice: "Task completed"
 	end
 
 
