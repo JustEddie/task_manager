@@ -1,15 +1,14 @@
-
 <div class="section">
 
     <div class="container">
-    <%= button_to "Add new category", '/categories/new', method: :get, class:"button" %>
-            <% @categories.each do |category| %>
+            <% current_user.comments.each do |comment| %>
                 <div class="card">
                     <div class="card-content">
                         <div class="media">
                             <div class="media-content">
-                                <%= render category %>
+                                <p><%= comment.content %></p>
                             </div>
+                            <%= button_to 'Delete', comment, method: :delete, data: { confirm: "Are you sure?" }, class:"button is-danger" %>
                         </div>
                     </div>
                 </div>

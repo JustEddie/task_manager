@@ -27,18 +27,17 @@ class TasksController < ApplicationController
   end
 
   def complete
-		@task.update_attribute(:completed_at, Time.now)
-		redirect_to categories_path, notice: "Task completed"
-	end
-
+    @task.update_attribute(:completed_at, Time.now)
+    redirect_to categories_path, notice: 'Task completed'
+  end
 
   def destroy
     if @task.destroy
-      flash[:notice] = "Task has been deleted"
-    redirect_to categories_path
+      flash[:notice] = 'Task has been deleted'
+      redirect_to categories_path
     else
-      flash[:error] = "Task failed to be deleted"
-    redirect_to categories_path
+      flash[:error] = 'Task failed to be deleted'
+      redirect_to categories_path
     end
   end
 
@@ -56,6 +55,4 @@ class TasksController < ApplicationController
   def task_params
     params.require(:task).permit(:name)
   end
-
-
 end

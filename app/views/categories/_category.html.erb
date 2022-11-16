@@ -17,11 +17,23 @@
         <div class="media">
             <ul>
                 <% category.tasks.each do |task| %>
-                    <div class="media-name">
-                       <li><%= task.name %><li>
-                    </div>
+                    <% if !task.id.nil? %>
+                        <% if task.completed? %>
+                            <%= link_to complete_category_task_path(category, task), method: :patch do %>
+                                <i style="opacity: 0.4;" class="fa fa-check"></i>
+                                    <p><%= task.name %></p>
+                            <% end %>
+                        <% else %>
+                            <li>
+                                <%= link_to complete_category_task_path(category, task), method: :patch do %>
+                                    <i class="fa fa-check"></i>
+                                <% end %>
+                                    <p><%= task.name %></p>
+                            </li>
+                        <% end %>
+                    <% end %>
                 <% end %>
-            </ul> 
+            </ul>
         </div>
 
     </div>

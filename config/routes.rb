@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 
   resources :users
+  resources :comments
 
   resources :categories do
     resources :tasks do
@@ -30,5 +31,6 @@ Rails.application.routes.draw do
   resources :sessions
   # resources :tasks
   # root "users#login"
-  root 'sessions#welcome'
+  # root 'sessions#welcome'
+  root 'categories#index'
 end

@@ -1,6 +1,6 @@
 
 <div class="row clearfix">
-	<% if task.completed? %>
+	<% if task.completed? && !task.id.nil? %>
 		<div class="complete">
 			<%= link_to complete_category_task_path(category, task.id), method: :patch do %>
 				<i style="opacity: 0.4;" class="fa fa-check"></i>
@@ -14,7 +14,7 @@
 				<i class="fa fa-trash"></i>
 			<% end %>
 		</div>
-	<% else %>
+	<% else if !task.id.nil? %>
 		<div class="complete">
 			<%= link_to complete_category_task_path(category, task.id), method: :patch do %>
 				<i class="fa fa-check"></i>
