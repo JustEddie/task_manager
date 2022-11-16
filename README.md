@@ -26,9 +26,10 @@
 
 #### It looks Like : 
 
-#### MVP plan
+#### MVC plan
 <img src="./src/images/draw_io.png">
 <a href="https://www.figma.com/file/8yiNRP6MKV9rZUR8Hr4SFc/Ruby-On-Rails-Task-App?node-id=0%3A1&t=ybHd6CcWpknAF53s-0">Figma</a>
+
 #### main page
 <img src="./src/images/main.png">
 
@@ -37,5 +38,5 @@
 
 ### 🗝 Key Skills 🗝
 * Build a Ruby On Rails application from scratch
-* Apply knowledge of (MVP)model, controller and view management
+* Apply knowledge of (MCV)model, controller and view management
 * Write unit tests
