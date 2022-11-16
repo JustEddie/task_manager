@@ -1,24 +1,37 @@
-# README
+# Everyday Task Manager
+### Ruby & Rails Project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+(last updated : 16/11/22)
+### 💻 Used Stacks 💻
 
-Things you may want to cover:
+<img src="https://img.shields.io/badge/Ruby-CC342D?style=for-the-badge&logo=ruby&logoColor=white">
+<img src="https://img.shields.io/badge/RubyOnRails-CC0000?style=for-the-badge&logo=rubyonrails&logoColor=white">
+<img src="https://img.shields.io/badge/RubyGems-E9573F?style=for-the-badge&logo=rubygems&logoColor=white">
+<img src="https://img.shields.io/badge/SQLite-003B57?style=for-the-badge&logo=SQLite&logoColor=white">
 
-* Ruby version
+## used gems 
 
-* System dependencies
+* <a href="https://github.com/puma/puma">Puma</a>
+<p>Use Puma as the app server</p>
 
-* Configuration
+* <a href="https://github.com/dhmgroup/bulmajs-rails">Bulma</a>
+<p>Bulma css</p>
 
-* Database creation
+* <a href="https://github.com/heartcombo/simple_form">Simple Form</a>
 
-* Database initialization
+* <a href="https://rspec.info/">Rspec</a>
 
-* How to run the test suite
+* <a href="https://github.com/teamcapybara/capybara">Capybara</a>
+<p>Capybara system testing and selenium driver</p>
 
-* Services (job queues, cache servers, search engines, etc.)
+#### It looks Like : 
+#### main page
+<img src="./src/images/main.png">
 
-* Deployment instructions
+#### sign up page
+<img src="./src/images/sign_up.png">
 
-* ...
+### 🗝 Key Skills 🗝
+* Build a Ruby On Rails application from scratch
+* Apply knowledge of (MVP)model, controller and view management
+* Write unit tests
