@@ -19,11 +19,11 @@ describe 'log in', type: :feature do
   let(:user_to_login) { User.find_by(email: 'fake@example.com') }
 
   it 'successfully logged in' do
-    expect(current_path).to eql('/welcome')
+    expect(current_path).to eql(root_path)
   end
 
   it 'shows logged in page' do
-    expect(page).to have_text('You are logged in, FakeFirstName')
+    expect(page).to have_text('You are logged in as: FakeFirstName')
   end
 
 end
